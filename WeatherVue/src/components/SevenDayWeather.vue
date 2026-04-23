@@ -40,7 +40,7 @@ export default {
         this.location = this.$root.countyInfo.cityZh;
         this.weatherList = [];
         var countyInfo = this.$root.countyInfo;
-        var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
+        var url = "/api/forecast?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
         this.showLoading();
         this.$http.get(url).then((response) =>{
           this.operationData(response.data && response.data.list);
@@ -53,7 +53,7 @@ export default {
         var weatherList = [];
         for (var i = 0; i < list.length; i++) {
            var morning = list[i];
-           var morningDesc ="时间:" + morning.dt_txt + " " + morning.weather[0].description + " 温度:" + Math.ceil(morning.main.temp - 273.15) + "度 湿度:" + morning.main.humidity + " 风力:" + Math.ceil(morning.wind.speed) + "级";
+           var morningDesc ="时间:" + morning.dt_txt + " " + morning.weather[0].description + " 温度:" + Math.ceil(morning.main.temp - 273.15) + "�?湿度:" + morning.main.humidity + " 风力:" + Math.ceil(morning.wind.speed) + "�?;
            var weather = {
             "morning":morningDesc,
             //"night":nightDesc

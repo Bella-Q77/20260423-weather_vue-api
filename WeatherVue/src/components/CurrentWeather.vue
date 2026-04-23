@@ -45,7 +45,7 @@ export default {
         this.location = this.$root.countyInfo.cityZh;
         this.weatherInfo = null;
         var countyInfo = this.$root.countyInfo;
-        var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
+        var url = "/api/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
         this.showLoading();
         this.$http.get(url).then((response) =>{
           this.weatherInfo = response.data;
@@ -58,7 +58,7 @@ export default {
       operationData(){
         this.temp = Math.ceil(this.weatherInfo.main.temp - 273.15);
         this.description = this.weatherInfo.weather[0].description;
-        this.humidity = "湿度" + this.weatherInfo.main.humidity + "%" + " 风力" + Math.ceil(this.weatherInfo.wind.speed) + "级";
+        this.humidity = "湿度" + this.weatherInfo.main.humidity + "%" + " 风力" + Math.ceil(this.weatherInfo.wind.speed) + "�?;
       },
   },
   ready(){
